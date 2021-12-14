@@ -1,38 +1,220 @@
-.App {
-  text-align: center;
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@500;700&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+:root {
+  --color-theme: #ced4da;
+  --font-color: #212529;
+  --title-color: #364fc7;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+html {
+  font-family: "Roboto", sans-serif;
+  color: var(--font-color);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* **************************** */
+/* **********header************ */
+/* **************************** */
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 5rem;
+  gap: 20rem;
+}
+
+header > h1 {
+  font-size: 3rem;
+  color: var(--font-color);
+}
+header > nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.nav-link {
+  display: block;
+  font-size: 1.3rem;
+  text-decoration: none;
+  color: var(--title-color);
+  transition: all 150ms ease-in-out;
+}
+
+.nav-link:hover {
+  font-size: 1.4rem;
+  text-decoration: underline;
+}
+
+.btn {
+  height: 3rem;
+  width: 3rem;
+  border-radius: 50%;
+  cursor: pointer;
+  background: none;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 300ms ease-in-out;
+}
+
+.btn:hover {
+  background: var(--color-theme);
+}
+
+.icon {
+  transform: scale(1.5);
+  color: var(--font-color);
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* **************************** */
+/* **********body************ */
+/* **************************** */
+
+.hero-section {
+  height: 80vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: url(./assets/wave2.svg);
+  background-repeat: no-repeat;
+  gap: 10rem;
+}
+
+.intro-text {
+  max-width: 30rem;
+}
+
+.hero-section h2 {
+  color: var(--font-color);
+  font-size: 4rem;
+  margin-bottom: 4rem;
+}
+
+.custumers {
+  width: 10rem;
+}
+.custumers-img {
+  height: 2.5rem;
+  border-radius: 50%;
+  margin-left: -0.9rem;
+  border: 2px solid #fdf2e9;
+}
+
+.custumers-img:first-child {
+  margin-left: 0;
+}
+.custumers-img:last-child {
+  margin-right: 1rem;
+}
+
+.custumers span {
+  color: var(--title-color);
+  font-weight: 600;
+}
+
+.hero-images img {
+  height: 28rem;
+}
+
+/* **************************** */
+/* **********footer************ */
+/* **************************** */
+
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4rem;
+}
+
+.footer-links {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.footer-links a {
+  display: block;
+  transition: all 100ms ease-in;
+}
+
+.footer-links a:hover {
+  transform: scale(1.3);
+}
+
+.footer-links:first-child {
+  margin-right: 1rem;
+}
+
+/* **************************** */
+/* *********side-menu********** */
+/* **************************** */
+.cart-overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.15);
+}
+
+.side-menu {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 25%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  gap: 1rem;
+  padding: 1rem;
+  background-color: #f8f9fa;
+  z-index: 1000;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.15);
 }
 
-.App-link {
-  color: #61dafb;
+.side-menu h2 {
+  font-size: 2rem;
+  margin-top: 4rem;
+}
+.side-menu p {
+  font-size: 1.5rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.btn-side-menu {
+  background-color: var(--title-color);
+  font-size: 1.2rem;
+  width: 8rem;
+  height: 1.8rem;
+  border-radius: 7px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropdown-menu p {
+  margin-bottom: 2rem;
+}
+.btn-side-menu:hover {
+  background-color: #4d61c5;
+}
+
+.btn-side-menu:active {
+  transform: scale(0.95);
 }
