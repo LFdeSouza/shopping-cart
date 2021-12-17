@@ -1,17 +1,18 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { FaCartPlus } from "react-icons/fa";
 
-const Navbar = ({ openCart }) => {
+const Navbar = ({ openCart, printProducts }) => {
   return (
     <header>
       <h1>THE FAKE STORE</h1>
       <nav>
-        <a className="nav-link" href="#">
+        <Link to="/" className="nav-link">
           Home
-        </a>
-        <a className="nav-link" href="#">
+        </Link>
+        <Link to="/ProductPage" className="nav-link">
           Products
-        </a>
+        </Link>
         <button className="btn" onClick={openCart}>
           <FaCartPlus className="icon" />
         </button>

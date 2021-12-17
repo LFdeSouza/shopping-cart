@@ -8,7 +8,7 @@ const Hero = () => {
       <div className="intro-text">
         <h2>Have a great time fake shopping here!</h2>
         <div className="custumers">
-          <img src={custumers} alt="custumers" className="custumers" />
+          <img src={custumers} alt="custumers" className="custumers-img" />
           <p className="custumers-text">
             <span>250,000+</span> did not shop here!
           </p>

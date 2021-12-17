@@ -4,25 +4,21 @@ import Hero from "./components/Hero";
 import Footer from "./components/Footer";
 import CartModal from "./components/CartModal";
 import { useState } from "react";
+import printProducts from "./functionality/products";
 
 function App() {
   const [cartModal, setCartModal] = useState(false);
 
-  const openCart = () => {
-    console.log("clicked");
-    setCartModal(true);
-  };
-
-  const closeOnClick = () => {
-    setCartModal(false);
+  const toggleCart = () => {
+    setCartModal(!cartModal);
   };
 
   return (
     <div className="App">
-      <Navbar openCart={openCart} />
+      <Navbar openCart={toggleCart} printProducts={printProducts} />
       <Hero />
       <Footer />
-      {cartModal ? <CartModal onClick={closeOnClick} /> : null}
+      <CartModal state={cartModal} onClick={toggleCart} />
     </div>
   );
 }
