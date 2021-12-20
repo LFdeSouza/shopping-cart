@@ -1,16 +1,18 @@
 import React from "react";
+import Product from "./Product";
 
-const ProductsComponent = ({ product }) => {
+const ProductsComponent = ({ products }) => {
   return (
     <div className="products-container">
-      <div className="product">
-        <img
-          className="product-image"
-          src={product.image}
-          alt={product.title}
+      {products.map((product) => (
+        <Product
+          key={product.id}
+          id={product.id}
+          title={product.title}
+          image={product.image}
+          price={product.price}
         />
-        <p className="product-title">{product.title}</p>
-      </div>
+      ))}
     </div>
   );
 };

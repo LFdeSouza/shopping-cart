@@ -1,5 +1,6 @@
 import React from "react";
 import { FaTwitter, FaFacebook, FaInstagram, FaGithub } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 function Footer() {
   return (
@@ -7,7 +8,20 @@ function Footer() {
       <p>© 2021 LFS. Fake rights reserved.</p>
       <div className="footer-links">
         <p>Contact us!</p>
-        <a href="/" className="footer-link">
+        <Link className="footer-link" to={"/"}>
+          <FaGithub className="icon" />
+        </Link>
+        <Link className="footer-link" to={"/"}>
+          <FaTwitter className="icon" />
+        </Link>
+        <Link className="footer-link" to={"/"}>
+          <FaInstagram className="icon" />
+        </Link>
+        <Link className="footer-link" to={"/"}>
+          {" "}
+          <FaFacebook className="icon" />
+        </Link>
+        {/* <a href="/" className="footer-link">
           <FaGithub className="icon" />
         </a>
         <a href="#" className="footer-link">
@@ -18,7 +32,7 @@ function Footer() {
         </a>
         <a href="#" className="footer-link">
           <FaFacebook className="icon" />
-        </a>
+        </a> */}
       </div>
     </footer>
   );
