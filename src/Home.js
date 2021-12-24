@@ -4,7 +4,6 @@ import Hero from "./components/Hero";
 import Footer from "./components/Footer";
 import CartModal from "./components/CartModal";
 import { useState } from "react";
-import printProducts from "./functionality/products";
 
 function App() {
   const [cartModal, setCartModal] = useState(false);
@@ -15,7 +14,7 @@ function App() {
 
   return (
     <div className="App">
-      <Navbar openCart={toggleCart} printProducts={printProducts} />
+      <Navbar openCart={toggleCart} />
       <Hero />
       <Footer />
       <CartModal state={cartModal} onClick={toggleCart} />

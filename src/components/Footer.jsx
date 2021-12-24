@@ -21,18 +21,6 @@ function Footer() {
           {" "}
           <FaFacebook className="icon" />
         </Link>
-        {/* <a href="/" className="footer-link">
-          <FaGithub className="icon" />
-        </a>
-        <a href="#" className="footer-link">
-          <FaTwitter className="icon" />
-        </a>
-        <a href="#" className="footer-link">
-          <FaInstagram className="icon" />
-        </a>
-        <a href="#" className="footer-link">
-          <FaFacebook className="icon" />
-        </a> */}
       </div>
     </footer>
   );

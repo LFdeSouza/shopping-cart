@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { FaCartPlus } from "react-icons/fa";
 
-const Navbar = ({ openCart, printProducts }) => {
+const Navbar = ({ openCart }) => {
   return (
     <header>
       <h1>THE FAKE STORE</h1>
