@@ -1,6 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./Home";
-import ProductPage from "./ProductPage";
 import { ProductsContainer } from "./store/containers";
 
 const RouteSwitch = () => {

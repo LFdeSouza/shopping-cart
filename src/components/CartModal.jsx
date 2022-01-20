@@ -1,17 +1,44 @@
 import React from "react";
+import CartItem from "./CartItem";
 
-function CartModal({ onClick, state }) {
+function CartModal({
+  cartModal,
+  onToggleCart,
+  cart = [],
+  onIncrement,
+  onDecrement,
+}) {
+  const total = () =>
+    cart.reduce((total, item) => total + item.price * item.quantity, 0);
+
   return (
     <div>
       <div
-        className={state ? "cart-overlay active" : "cart-overlay"}
-        onClick={onClick}
+        className={cartModal ? "cart-overlay active" : "cart-overlay"}
+        onClick={(cartModal) => onToggleCart(cartModal)}
       ></div>
-      <div className={state ? "side-menu active" : "side-menu"}>
+      <div className={cartModal ? "side-menu active" : "side-menu"}>
         <h2>Your shopping cart!</h2>
-        <p>Total: $0.00</p>
+        <div className="cart-products-container">
+          {cart.map((item) => (
+            <CartItem
+              key={item.id}
+              id={item.id}
+              title={item.title}
+              image={item.image}
+              price={item.price}
+              quantity={item.quantity}
+              onIncrement={onIncrement}
+              onDecrement={onDecrement}
+            />
+          ))}
+        </div>
+        <p>{`Total: $${parseFloat(total()).toFixed(2)}`}</p>
         <button className="btn-side-menu checkout">checkout</button>
-        <button className="btn-side-menu close" onClick={onClick}>
+        <button
+          className="btn-side-menu close"
+          onClick={(cartModal) => onToggleCart(cartModal)}
+        >
           Close
         </button>
       </div>

@@ -1,7 +1,7 @@
 import React from "react";
 import Product from "./Product";
 
-const ProductsComponent = ({ products }) => {
+const ProductsComponent = ({ products, onAdd }) => {
   return (
     <div className="products-container">
       {products.map((product) => (
@@ -11,6 +11,7 @@ const ProductsComponent = ({ products }) => {
           title={product.title}
           image={product.image}
           price={product.price}
+          onAdd={onAdd}
         />
       ))}
     </div>
