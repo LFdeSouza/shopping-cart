@@ -1,9 +1,11 @@
 import "./App.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import { Cart } from "./store/containers";
+import CartModal from "./components/CartModal";
 import { useEffect } from "react";
 import ProductsComponent from "./components/ProductsComponent";
+import { connect } from "react-redux";
+import { fetchProducts, addItemToCart, toggleCart } from "./store/actions";
 
 function ProductPage({
   products,
@@ -21,9 +23,20 @@ function ProductPage({
       <Navbar openCart={onToggleCart} />
       <ProductsComponent products={products} onAdd={onAddItem} />
       <Footer />
-      <Cart cart={cart} />
+      <CartModal cart={cart} />
     </div>
   );
 }
 
-export default ProductPage;
+const mapStateToProps = (state) => ({
+  products: state.products,
+  cart: state.cart,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  onLoadProducts: () => dispatch(fetchProducts()),
+  onAddItem: (id) => dispatch(addItemToCart(id)),
+  onToggleCart: (cartStatus) => dispatch(toggleCart(cartStatus)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(ProductPage);

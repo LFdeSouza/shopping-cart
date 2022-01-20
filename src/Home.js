@@ -4,22 +4,23 @@ import Hero from "./components/Hero";
 import Footer from "./components/Footer";
 import CartModal from "./components/CartModal";
 import { useState } from "react";
+import { connect } from "react-redux";
+import { toggleCart } from "./store/actions";
 
-function App() {
-  const [cartModal, setCartModal] = useState(false);
-
-  const toggleCart = () => {
-    setCartModal(!cartModal);
-  };
-
+function Home({ cart, onToggleCart }) {
   return (
     <div className="App">
-      <Navbar openCart={toggleCart} />
+      <Navbar openCart={onToggleCart} />
       <Hero />
       <Footer />
-      <CartModal state={cartModal} onClick={toggleCart} />
+      <CartModal state={cart} onClick={onToggleCart} />
     </div>
   );
 }
 
-export default App;
+const mapStateToProps = (state) => ({ cart: state.cart });
+
+const mapDispatchToProps = (dispatch) => ({
+  onToggleCart: (cartStatus) => dispatch(toggleCart(cartStatus)),
+});
+export default connect(mapStateToProps, mapDispatchToProps)(Home);

@@ -1,5 +1,11 @@
 import React from "react";
 import CartItem from "./CartItem";
+import { connect } from "react-redux";
+import {
+  toggleCart,
+  incrementQuantity,
+  decrementQuantity,
+} from "../store/actions";
 
 function CartModal({
   cartModal,
@@ -46,4 +52,15 @@ function CartModal({
   );
 }
 
-export default CartModal;
+// export default CartModal;
+const mapStateToProps = (state) => ({
+  cart: state.cart,
+  cartModal: state.cartModal,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  onToggleCart: (cartStatus) => dispatch(toggleCart(cartStatus)),
+  onIncrement: (id) => dispatch(incrementQuantity(id)),
+  onDecrement: (id, quantity) => dispatch(decrementQuantity(id, quantity)),
+});
+export default connect(mapStateToProps, mapDispatchToProps)(CartModal);
