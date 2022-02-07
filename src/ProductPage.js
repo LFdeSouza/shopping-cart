@@ -1,6 +1,4 @@
 import "./App.css";
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
 import CartModal from "./components/CartModal";
 import { useEffect } from "react";
 import ProductsComponent from "./components/ProductsComponent";
