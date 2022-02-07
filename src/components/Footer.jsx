@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 function Footer() {
   return (
     <footer>
-      <div className="container">
+      <div className="container mt-5">
         <div className="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
           <p class="col-md-4 mb-0 text-muted">
             &copy; 2021 LFS, rights reserved
@@ -44,9 +44,6 @@ function Footer() {
               </a>
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link px-2 text-muted">
-                About
-              </a>
             </li>
           </ul>
         </div>

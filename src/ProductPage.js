@@ -5,13 +5,7 @@ import ProductsComponent from "./components/ProductsComponent";
 import { connect } from "react-redux";
 import { fetchProducts, addItemToCart, toggleCart } from "./store/actions";
 
-function ProductPage({
-  products,
-  cart,
-  onLoadProducts,
-  onAddItem,
-  onToggleCart,
-}) {
+function ProductPage({ products, cart, onLoadProducts, onAddItem }) {
   useEffect(() => {
     onLoadProducts();
   }, []);
