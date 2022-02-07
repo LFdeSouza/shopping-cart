@@ -3,10 +3,14 @@ import { Link } from "react-router-dom";
 import { FaCartPlus } from "react-icons/fa";
 import { useDispatch } from "react-redux";
 import { toggleCart } from "../store/actions";
+import { useSelector } from "react-redux";
 
 const Navbar = () => {
+  const items = useSelector((state) => state.cart);
   const dispatch = useDispatch();
   const toggleModal = () => dispatch(toggleCart());
+
+  const totalItems = items.reduce((prev, curr) => prev + curr.quantity, 0);
 
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -41,27 +45,17 @@ const Navbar = () => {
           <button className="cart-btn" onClick={toggleModal}>
             <FaCartPlus className="icon" />
           </button>
+          <div
+            className={`${
+              items.length ? "cart-indicator" : "cart-indicator-hidden"
+            }`}
+          >
+            {totalItems}
+          </div>
         </div>
       </div>
     </nav>
   );
-
-  // return (
-  //   <header>
-  //     <h1>THE FAKE STORE</h1>
-  //     <nav>
-  //       <Link to="/" className="nav-link">
-  //         Home
-  //       </Link>
-  //       <Link to="/ProductPage" className="nav-link">
-  //         Products
-  //       </Link>
-  //       <button className="btn" onClick={toggleModal}>
-  //         <FaCartPlus className="icon" />
-  //       </button>
-  //     </nav>
-  //   </header>
-  // );
 };
 
 export default Navbar;
