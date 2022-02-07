@@ -20,9 +20,7 @@ function ProductPage({
 
   return (
     <div className="App">
-      <Navbar openCart={onToggleCart} />
       <ProductsComponent products={products} onAdd={onAddItem} />
-      <Footer />
       <CartModal cart={cart} />
     </div>
   );

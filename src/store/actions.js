@@ -34,9 +34,7 @@ export const decrementQuantity = (target, quantity) => ({
 });
 
 //Cart Modal Actions
-export const toggleCart = (cartStatus) => {
-  return {
+export const toggleCart = () => (dispatch) =>
+  dispatch({
     type: C.TOGGLE_CART,
-    cartStatus: !cartStatus,
-  };
-};
+  });

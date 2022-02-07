@@ -1,8 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { FaCartPlus } from "react-icons/fa";
+import { useDispatch } from "react-redux";
+import { toggleCart } from "../store/actions";
 
-const Navbar = ({ openCart }) => {
+const Navbar = () => {
+  const dispatch = useDispatch();
+  const toggleModal = () => dispatch(toggleCart());
+
   return (
     <header>
       <h1>THE FAKE STORE</h1>
@@ -13,7 +18,7 @@ const Navbar = ({ openCart }) => {
         <Link to="/ProductPage" className="nav-link">
           Products
         </Link>
-        <button className="btn" onClick={openCart}>
+        <button className="btn" onClick={toggleModal}>
           <FaCartPlus className="icon" />
         </button>
       </nav>
