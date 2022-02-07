@@ -9,11 +9,11 @@ const Product = ({ image, title, price, id, onAdd }) => {
       >
         <img src={image} alt={title} className=" product-image" />
         <div className="card-body">
-          <h5 className="card-title">{title}</h5>
-          <p className="card-text">{price}</p>
+          <h5 className="card-title fs-5">{title}</h5>
+          <p className="card-text">{`$${price}`}</p>
         </div>
         <button
-          className="btn btn-primary btn-lg"
+          className="btn btn-primary btn-lg w-100 btn-product"
           onClick={() => onAdd({ id, title, image, price })}
         >
           Add to cart

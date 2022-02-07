@@ -21,10 +21,10 @@ function CartModal({
     <div>
       <div
         className={cartModal ? "cart-overlay active" : "cart-overlay"}
-        onClick={(cartModal) => onToggleCart(cartModal)}
+        onClick={onToggleCart}
       ></div>
       <div className={cartModal ? "side-menu active" : "side-menu"}>
-        <h2>Your shopping cart!</h2>
+        <h1>Your shopping cart!</h1>
         <div className="cart-products-container">
           {cart.map((item) => (
             <CartItem
@@ -40,9 +40,9 @@ function CartModal({
           ))}
         </div>
         <p>{`Total: $${parseFloat(total()).toFixed(2)}`}</p>
-        <button className="btn-side-menu checkout">checkout</button>
+        <button className="btn btn-primary w-75">checkout</button>
         <button
-          className="btn-side-menu close"
+          className="btn btn-primary w-75"
           onClick={(cartModal) => onToggleCart(cartModal)}
         >
           Close
@@ -59,7 +59,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  onToggleCart: (cartStatus) => dispatch(toggleCart(cartStatus)),
+  onToggleCart: () => dispatch(toggleCart()),
   onIncrement: (id) => dispatch(incrementQuantity(id)),
   onDecrement: (id, quantity) => dispatch(decrementQuantity(id, quantity)),
 });
